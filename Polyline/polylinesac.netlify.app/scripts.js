@@ -31,9 +31,6 @@ function toggleContactOptions() {
     button.classList.toggle('open');
 }
 
-
-
-
 // Seleccionar el botón de modo oscuro
 const toggleButton = document.getElementById('dark-mode-toggle');
 
@@ -59,9 +56,6 @@ toggleButton.addEventListener('click', () => {
         localStorage.setItem('dark-mode', 'enabled'); // Guardar preferencia en localStorage
     }
 });
-
-
-
 
 // Función modificada para cambiar contenido según el departamento
 function changeContent(src, isVideo, departmentNumber) {
@@ -91,7 +85,6 @@ function changeContent(src, isVideo, departmentNumber) {
     }
 }
 
-
 // Función para abrir el modal del departamento correspondiente
 function openModal(departmentNumber) {
     const modal = document.getElementById('detail-modal-' + departmentNumber);
@@ -119,11 +112,6 @@ document.querySelectorAll('.btn-details').forEach(button => {
         openModal(departmentNumber);
     });
 });
-
-
-
-
-
 
 // Cambiar entre métodos de pago
 function togglePaymentMethod() {
@@ -172,28 +160,28 @@ function initializeCarousel(departmentId) {
     updateCarouselState();
     updateContent();
 }
-
 function moveCarousel(direction) {
     if (!currentDepartment || contentArray.length === 0) return;
-    
+
     const items = document.querySelectorAll(`#detail-modal-${currentDepartment} .carousel-item`);
+    const track = document.querySelector(`#detail-modal-${currentDepartment} .carousel-track`);
     const maxPosition = items.length - 1;
-    
+
+    // Actualizar posición actual
     currentPosition = Math.max(0, Math.min(maxPosition, currentPosition + direction));
-    
+
+    // Desplazar visualmente el carrusel
+    const itemWidth = items[0].offsetWidth;
+    const scrollAmount = itemWidth + 16; // incluye posible margen
+
+    track.scrollTo({
+        left: currentPosition * scrollAmount,
+        behavior: 'smooth'
+    });
+
+    // Actualizar selección visual y contenido principal
     updateCarouselState();
     updateContent();
-}
-
-function updateCarouselState() {
-    const items = document.querySelectorAll(`#detail-modal-${currentDepartment} .carousel-item`);
-    items.forEach((item, index) => {
-        if (index === currentPosition) {
-            item.classList.add('active');
-        } else {
-            item.classList.remove('active');
-        }
-    });
 }
 
 function updateContent() {

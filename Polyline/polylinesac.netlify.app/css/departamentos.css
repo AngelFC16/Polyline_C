@@ -92,7 +92,7 @@ body.dark-mode .card-details p {
 }
 
 .btn-details:hover {
-    background: #d37a2d;
+    background: #9d5a0e;
     transform: scale(1.1);
 }
 
@@ -108,7 +108,7 @@ body.dark-mode .card-details p {
 }
 
 .btn-details {
-    background: #007bff;
+    background: #e67e22;
     color: white;
 }
 
