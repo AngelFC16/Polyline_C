@@ -27,30 +27,6 @@ body.dark-mode {
     --particle-tertiary: rgba(255, 187, 167, 0.1);
 }
 
-body:not(.dark-mode) {
-    --current-bg: var(--light-bg);
-    --text-color: #272b30;
-    --box-background: rgba(255, 255, 255, 0.9);
-    --particle-primary: var(--light-particle);
-    --particle-secondary: rgba(52, 152, 219, 0.6);
-    --particle-tertiary: rgba(41, 128, 185, 0.4);
-    --input-border-color: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] {
-    --current-bg: var(--light-bg);
-    --particle-primary: var(--light-particle);
-    --particle-secondary: rgba(52, 152, 219, 0.6);
-    --particle-tertiary: rgba(41, 128, 185, 0.4);
-}
-
-[data-theme="dark"] {
-    --current-bg: var(--dark-bg);
-    --particle-primary: var(--dark-particle);
-    --particle-secondary: rgba(52, 152, 219, 0.6);
-    --particle-tertiary: rgba(236, 240, 241, 0.4);
-}
-
 /* Estilos base del body */
 body {
     margin: 0;

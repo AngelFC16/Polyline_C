@@ -75,6 +75,20 @@ function showSocialLoginForm(provider, email, iconSrc) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // ========== NUEVO CÓDIGO PARA EL MODO OSCURO ==========
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    
+    // Verificar preferencia guardada o del sistema
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+    // Manejar cambios en el modo oscuro
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', 
+            document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled'
+        );
+    });
     // Animación del logo y título
     anime.timeline({
         easing: 'easeOutExpo',

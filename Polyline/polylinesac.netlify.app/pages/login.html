@@ -238,36 +238,6 @@
             duration: 800,
             easing: 'easeOutQuad'
         });
-        
-        // Añadir después de las animaciones existentes
-        
-        // Función para manejar el cambio de tema
-        function handleThemeChange(isDark) {
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-        }
-
-        // Detectar preferencia del sistema
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        handleThemeChange(prefersDark.matches);
-
-        // Escuchar cambios en la preferencia del sistema
-        prefersDark.addEventListener('change', (e) => handleThemeChange(e.matches));
-
-        // Integrar el controlador de modo oscuro existente
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        
-        // Verificar preferencia guardada
-        if (localStorage.getItem('dark-mode') === 'enabled') {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Manejar cambios en el modo oscuro
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', 
-                document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled'
-            );
-        });
     </script>
 
     <!--<script type="module" src="../js/auth-check.js"></script> -->
